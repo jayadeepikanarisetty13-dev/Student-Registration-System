@@ -1,0 +1,35 @@
+body {
+    font-family: Arial;
+    background: #eaf0f8;
+    text-align: center;
+}
+
+h1 {
+    color: darkblue;
+}
+
+form {
+    background: white;
+    padding: 25px;
+    width: 300px;
+    margin: auto;
+    border-radius: 10px;
+}
+
+input {
+    width: 90%;
+    padding: 10px;
+    margin: 8px;
+}
+
+button {
+    background: blue;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+}
+
+#studentList {
+    margin: 20px;
+}
