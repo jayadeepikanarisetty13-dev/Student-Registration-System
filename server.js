@@ -23,13 +23,20 @@ app.post("/api/students", async (req, res) => {
     res.json(student);
 });
 
-// Connect MongoDB
+// Connect MongoDB & Handle Server for Vercel & Local
 mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log("MongoDB Connected");
 
-        app.listen(3000, () => {
-            console.log("Server running on port 3000");
-        });
+        // Only listen on port 3000 if running locally (not on Vercel)
+        if (process.env.NODE_ENV !== 'production') {
+            const PORT = process.env.PORT || 3000;
+            app.listen(PORT, () => {
+                console.log(`Server running on port ${PORT}`);
+            });
+        }
     })
     .catch(err => console.log(err));
+
+// Export app for Vercel serverless deployment
+module.exports = app;
